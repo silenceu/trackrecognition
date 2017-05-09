@@ -5,4 +5,5 @@
 需要用到的模块：matplotlib
 
 ![people](people.png)
+
 ![machine](machine.png)
