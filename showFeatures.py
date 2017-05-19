@@ -1,6 +1,7 @@
 #! /usr/bin/python
 # -*- coding: utf-8 -*-
 from matplotlib import pylab as pl
+from matplotlib import pyplot as pyl
 import os
 
 
@@ -11,7 +12,7 @@ def main():
         os.mkdir('images/pos')
     if not os.path.exists('images/neg'):
         os.mkdir('images/neg')
-    with open('data.txt') as f:
+    with open('dsjtzs_txfz_traning.txt') as f:
         lines = f.read().split('\n')
         for idx, line in enumerate(lines[:-1]):
             tmp = line.split(' ')
@@ -38,6 +39,7 @@ def main():
                 pl.savefig('images/neg/' + str(idx + 1) + '-' + tmp[-1] + '.png')
             else:
                 pl.savefig('images/pos/' + str(idx + 1) + '-' + tmp[-1] + '.png')
-            pl.show()
+            pyl.clf()
+            # pl.show()
 if __name__ == '__main__':
     main()
