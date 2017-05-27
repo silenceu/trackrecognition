@@ -38,13 +38,13 @@ def main():
             pl.scatter(sx, sy, color='blue')
             pl.scatter(ex, ey, color='blue')
             pl.scatter(goal_x, goal_y, color='black')
-            if tmp[-1] == '0':
-                pl.savefig('images/neg/goal' + str(idx + 1) + '-' + tmp[-1] + '.png')
-            else:
-                pl.savefig('images/pos/goal' + str(idx + 1) + '-' + tmp[-1] + '.png')
-            pyl.clf()
-            # pl.show()
+            # if tmp[-1] == '0':
+            #     pl.savefig('images/neg/goal' + str(idx + 1) + '-' + tmp[-1] + '.png')
+            # else:
+            #     pl.savefig('images/pos/goal' + str(idx + 1) + '-' + tmp[-1] + '.png')
             # pyl.clf()
+            pl.show()
+            pyl.clf()
 
 
 if __name__ == '__main__':
