@@ -1,5 +1,5 @@
 images
 /.idea/
 images.zip
-train_data.txt
-test_data.txt
+data_traing.txt
+data_test.txt
