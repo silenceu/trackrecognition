@@ -27,7 +27,7 @@ def extract_avg_speed(trace: list):
 
 
 # 增加提取新特征的方法
-# 该函数只是针对一条规矩数据进行特征提取
+# 该函数只是针对一条轨迹数据进行特征提取
 # def extract_feature(trace: list):
 #     trace = np.array(trace, dtype='int32')
 #     trace = trace.T
@@ -35,13 +35,13 @@ def extract_avg_speed(trace: list):
 #     return feature
 #
 #
-# 在main()添加以下形式的语句调用extract_feature方法处理所以轨迹数据获取3000个特征
+# 在main()添加以下形式的语句调用extract_feature方法处理所有轨迹数据获取3000个特征
 # features = traces.apply(extrac_feature)
 #
 
 def main():
     traces = readdata('data_traing.txt')
-    avg_speeds = traces.apply(extrac_avg_speed) # 使用extract_avg_speed提取平均速度
+    avg_speeds = traces.apply(extract_avg_speed) # 使用extract_avg_speed提取平均速度
     print(avg_speeds)
 
 
