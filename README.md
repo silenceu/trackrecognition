@@ -10,4 +10,4 @@
 
 #### 函数功能:
 - showTrace.py   轨迹可视化
-- extractFeature.py   提前特征
+- extractFeature.py   提取特征
