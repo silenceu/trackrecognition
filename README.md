@@ -2,8 +2,12 @@
 
 语言：python3
 
-需要用到的模块：matplotlib
+需要用到的模块：matplotlib、pandas、numpy
 
 ![people](people.png)
 
 ![machine](machine.png)
+
+#### 函数功能:
+- showTrace.py   轨迹可视化
+- extractFeature.py   提前特征
