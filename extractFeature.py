@@ -2,8 +2,6 @@
 # -*- encoding: utf-8 -*-
 import numpy as np
 import pandas as pd
-from matplotlib import pyplot as plt
-from matplotlib import pylab as pl
 
 
 def readdata(filepath):
@@ -16,6 +14,7 @@ def readdata(filepath):
     traces = traces.apply(lambda trace: [point.split(',') for point in trace.split(';')[:-1]])
     traces = traces.apply(lambda trace: np.array(trace, dtype='int32'))
     return traces
+
 
 def extract_avg_speed(trace: np.ndarray):
     """
@@ -34,12 +33,12 @@ def extract_avg_speed(trace: np.ndarray):
 #
 #
 # 在main()添加以下形式的语句调用extract_feature方法处理所有轨迹数据获取3000个特征
-# features = traces.apply(extrac_feature)
+# features = traces.apply(extract_feature)
 
 
 def main():
-    traces = readdata('data_traing.txt')
-    avg_speeds = traces.apply(extract_avg_speed) # 使用extract_avg_speed提取平均速度
+    traces = readdata('data_training.txt')
+    avg_speeds = traces.apply(extract_avg_speed)  # 使用extract_avg_speed提取平均速度
     print(avg_speeds)
 
 
