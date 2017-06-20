@@ -25,6 +25,12 @@ def extract_avg_speed(trace: np.ndarray):
     return avg_speed
 
 
+def extract_size(trace: np.ndarray):
+    """
+    随便添加一个用来测试
+    """
+    return trace.size
+
 # 增加提取新特征的方法
 # 该函数只是针对一条轨迹数据进行特征提取
 # def extract_feature(trace: np.ndarray):
