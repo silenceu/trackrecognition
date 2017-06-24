@@ -7,8 +7,6 @@
     <list default="true" id="a33d21ad-f35c-4114-bb52-7a17c9411870" name="Default" comment="统计特征的模块,根据list中包含的函数对特征进行提取,返回一个3000*n的numpy矩阵">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/features_23.py" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/predict_623.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/silenceu.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/silenceu.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extractFeature.py" afterPath="$PROJECT_DIR$/extractFeature.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generate_train_data.py" afterPath="$PROJECT_DIR$/generate_train_data.py" />
@@ -33,7 +31,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="extractFeature.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="extractFeature.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/extractFeature.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="312">
@@ -45,11 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="predict_623.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="predict_623.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/predict_623.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+            <state relative-caret-position="130">
+              <caret line="5" column="23" lean-forward="false" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
               </folding>
@@ -98,8 +96,8 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/generate_train_data.py" />
         <option value="$PROJECT_DIR$/features_23.py" />
-        <option value="$PROJECT_DIR$/predict_623.py" />
         <option value="$PROJECT_DIR$/extractFeature.py" />
+        <option value="$PROJECT_DIR$/predict_623.py" />
       </list>
     </option>
   </component>
@@ -388,7 +386,14 @@
       <option name="project" value="LOCAL" />
       <updated>1497940987355</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="update">
+      <created>1498274717485</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1498274717485</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView">
@@ -481,7 +486,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="随便添加了个用作测试的提取特征的函数(计算点的数量),仅做测试用不用来实际建模" />
     <MESSAGE value="统计特征的模块,根据list中包含的函数对特征进行提取,返回一个3000*n的numpy矩阵" />
-    <option name="LAST_COMMIT_MESSAGE" value="统计特征的模块,根据list中包含的函数对特征进行提取,返回一个3000*n的numpy矩阵" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -634,6 +640,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
           <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -678,22 +685,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/predict_623.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#33#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/extractFeature.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
           <caret line="228" column="75" lean-forward="false" selection-start-line="228" selection-start-column="75" selection-end-line="228" selection-end-column="75" />
           <folding>
             <element signature="e#46#64#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/predict_623.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="5" column="23" lean-forward="false" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
           </folding>
         </state>
       </provider>
