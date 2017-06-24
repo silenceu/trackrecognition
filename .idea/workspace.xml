@@ -4,12 +4,8 @@
     <bookmark url="file://$PROJECT_DIR$/extractFeature.py" line="228" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a33d21ad-f35c-4114-bb52-7a17c9411870" name="Default" comment="统计特征的模块,根据list中包含的函数对特征进行提取,返回一个3000*n的numpy矩阵">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/features_23.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/predict_623.py" />
+    <list default="true" id="a33d21ad-f35c-4114-bb52-7a17c9411870" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extractFeature.py" afterPath="$PROJECT_DIR$/extractFeature.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generate_train_data.py" afterPath="$PROJECT_DIR$/generate_train_data.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -31,11 +27,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="extractFeature.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="extractFeature.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/extractFeature.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="228" column="75" lean-forward="false" selection-start-line="228" selection-start-column="75" selection-end-line="228" selection-end-column="75" />
+            <state relative-caret-position="385">
+              <caret line="290" column="56" lean-forward="false" selection-start-line="290" selection-start-column="56" selection-end-line="290" selection-end-column="56" />
               <folding>
                 <element signature="e#46#64#0" expanded="true" />
               </folding>
@@ -43,7 +39,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="predict_623.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="predict_623.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/predict_623.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="130">
@@ -68,7 +64,7 @@
       <file leaf-file-name="features_23.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/features_23.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
+            <state relative-caret-position="520">
               <caret line="20" column="36" lean-forward="false" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
               <folding>
                 <element signature="e#0#67#0" expanded="true" />
@@ -96,8 +92,8 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/generate_train_data.py" />
         <option value="$PROJECT_DIR$/features_23.py" />
-        <option value="$PROJECT_DIR$/extractFeature.py" />
         <option value="$PROJECT_DIR$/predict_623.py" />
+        <option value="$PROJECT_DIR$/extractFeature.py" />
       </list>
     </option>
   </component>
@@ -393,7 +389,42 @@
       <option name="project" value="LOCAL" />
       <updated>1498274717485</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="update">
+      <created>1498274747365</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1498274747365</updated>
+    </task>
+    <task id="LOCAL-00005" summary="增加部分特征,增加get_feature_list函数,之后不需要在generate_train_data文件中每次手动导入">
+      <created>1498275208543</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1498275208543</updated>
+    </task>
+    <task id="LOCAL-00006" summary="删除在该文件中引入extractFeature模块中的特征提取函数,之后这个模块只用做合并计算出最终的特征集合,extractFeature和generate_train_data模块之后全部都被新增加的features_[date]模块调用">
+      <created>1498275538999</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1498275538999</updated>
+    </task>
+    <task id="LOCAL-00007" summary="features_[date]模块用来整合所有的数据,其中,get_train_data获取用开建模用的训练数据和类别标签,get_test_data以及用来预测的数据的特征集合">
+      <created>1498275581373</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1498275581373</updated>
+    </task>
+    <task id="LOCAL-00008" summary="预测结果的模块,该模块调用features_[date]模块获取用来训练和预测的数据集,然后建立相关的模型进行预测,该模块也和features_[date]模块一样,文件名添加日期加以区分, 没有分数更高的模型出现,低分数的模型移到history文件夹">
+      <created>1498275765705</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1498275765705</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TodoView">
@@ -487,7 +518,11 @@
     <MESSAGE value="随便添加了个用作测试的提取特征的函数(计算点的数量),仅做测试用不用来实际建模" />
     <MESSAGE value="统计特征的模块,根据list中包含的函数对特征进行提取,返回一个3000*n的numpy矩阵" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="增加部分特征,增加get_feature_list函数,之后不需要在generate_train_data文件中每次手动导入" />
+    <MESSAGE value="删除在该文件中引入extractFeature模块中的特征提取函数,之后这个模块只用做合并计算出最终的特征集合,extractFeature和generate_train_data模块之后全部都被新增加的features_[date]模块调用" />
+    <MESSAGE value="features_[date]模块用来整合所有的数据,其中,get_train_data获取用开建模用的训练数据和类别标签,get_test_data以及用来预测的数据的特征集合" />
+    <MESSAGE value="预测结果的模块,该模块调用features_[date]模块获取用来训练和预测的数据集,然后建立相关的模型进行预测,该模块也和features_[date]模块一样,文件名添加日期加以区分, 没有分数更高的模型出现,低分数的模型移到history文件夹" />
+    <option name="LAST_COMMIT_MESSAGE" value="预测结果的模块,该模块调用features_[date]模块获取用来训练和预测的数据集,然后建立相关的模型进行预测,该模块也和features_[date]模块一样,文件名添加日期加以区分, 没有分数更高的模型出现,低分数的模型移到history文件夹" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -659,24 +694,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/generate_train_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="3" column="19" lean-forward="false" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/features_23.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="20" column="36" lean-forward="false" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#67#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/result_623.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1768">
@@ -685,13 +702,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/extractFeature.py">
+    <entry file="file://$PROJECT_DIR$/features_23.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="228" column="75" lean-forward="false" selection-start-line="228" selection-start-column="75" selection-end-line="228" selection-end-column="75" />
+        <state relative-caret-position="520">
+          <caret line="20" column="36" lean-forward="false" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
           <folding>
-            <element signature="e#46#64#0" expanded="true" />
+            <element signature="e#0#67#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/generate_train_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="3" column="19" lean-forward="false" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -701,6 +726,16 @@
           <caret line="5" column="23" lean-forward="false" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extractFeature.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="290" column="56" lean-forward="false" selection-start-line="290" selection-start-column="56" selection-end-line="290" selection-end-column="56" />
+          <folding>
+            <element signature="e#46#64#0" expanded="true" />
           </folding>
         </state>
       </provider>
