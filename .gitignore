@@ -1,5 +1,6 @@
 images
 images.zip
-data_training.txt
+data_train.txt
+data_train.txt
 data_test.txt
 __pycache__
