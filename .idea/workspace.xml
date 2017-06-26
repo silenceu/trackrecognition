@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a33d21ad-f35c-4114-bb52-7a17c9411870" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -623,7 +622,21 @@
       <option name="project" value="LOCAL" />
       <updated>1498449480516</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="update">
+      <created>1498449488850</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1498449488850</updated>
+    </task>
+    <task id="LOCAL-00020" summary="6月26日日志更新">
+      <created>1498449512967</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1498449512967</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -732,7 +745,8 @@
     <MESSAGE value="训练数据分类" />
     <MESSAGE value="6月26日用的数据" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="6月26日日志更新" />
+    <option name="LAST_COMMIT_MESSAGE" value="6月26日日志更新" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
