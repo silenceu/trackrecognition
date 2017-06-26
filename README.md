@@ -19,3 +19,6 @@
     -   新增加的features\_[date]模块调用extractFeature和generate_train_data获取最终的训练数据和标签、预测数据
     -   新增加的predict\_[date]模块调用features\_[date]模块建模预测最终结果
 
+-   2017-06-26
+    -   去掉了一个特征,修改了学习速率为0.02
+    -   提交结果大概11600+,估计不少错误的结果提交
