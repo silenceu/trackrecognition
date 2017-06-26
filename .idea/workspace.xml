@@ -4,9 +4,8 @@
     <bookmark url="file://$PROJECT_DIR$/extractFeature.py" line="228" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a33d21ad-f35c-4114-bb52-7a17c9411870" name="Default" comment="update">
+    <list default="true" id="a33d21ad-f35c-4114-bb52-7a17c9411870" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extractFeature.py" afterPath="$PROJECT_DIR$/extractFeature.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -36,8 +35,8 @@
       <file leaf-file-name="extractFeature.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/extractFeature.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="491">
-              <caret line="303" column="26" lean-forward="true" selection-start-line="303" selection-start-column="26" selection-end-line="304" selection-end-column="10" />
+            <state relative-caret-position="23">
+              <caret line="285" column="18" lean-forward="false" selection-start-line="285" selection-start-column="18" selection-end-line="285" selection-end-column="18" />
               <folding>
                 <element signature="e#46#64#0" expanded="true" />
               </folding>
@@ -656,7 +655,14 @@
       <option name="project" value="LOCAL" />
       <updated>1498449525365</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="fix traces 类型错误">
+      <created>1498469422430</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1498469422430</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -766,7 +772,8 @@
     <MESSAGE value="6月26日用的数据" />
     <MESSAGE value="6月26日日志更新" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="fix traces 类型错误" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix traces 类型错误" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1189,8 +1196,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/extractFeature.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="491">
-          <caret line="303" column="26" lean-forward="true" selection-start-line="303" selection-start-column="26" selection-end-line="304" selection-end-column="10" />
+        <state relative-caret-position="23">
+          <caret line="285" column="18" lean-forward="false" selection-start-line="285" selection-start-column="18" selection-end-line="285" selection-end-column="18" />
           <folding>
             <element signature="e#46#64#0" expanded="true" />
           </folding>
