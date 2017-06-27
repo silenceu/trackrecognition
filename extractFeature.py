@@ -13,11 +13,12 @@ def readdata(filepath):
     column_name = ['id', 'trace', 'target', 'label']
     df = pd.read_csv(filepath, sep=' ', header=None, names=column_name)
     traces = df.loc[:, 'trace']
-    traces = traces.apply(lambda trace: [point.split(',') for point in trace.split(';')[:-1]])
-    traces = traces.apply(lambda trace: np.array(trace, dtype='int32'))
     targets = df.loc[:, 'target']
-    # trace_with_target = traces + targets
+    targets += ',0;'
     traces = traces + targets
+    traces = traces.apply(lambda trace: [point.split(',') for point in trace.split(';')[:-1]])
+    traces = traces.apply(lambda trace: np.array(trace, dtype='float'))
+    # trace_with_target = traces + targets
     # df.insert(4, 'trace_with_target', trace_with_target)
     return traces, np.array(df.loc[:, 'label'], dtype='uint8')
 #################################################################################
@@ -303,7 +304,7 @@ def get_feature_list():
 def main():
     traces, labels = readdata('data_train.txt')
     # avg_speeds = traces.apply(extract_avg_speed)  # 使用extract_avg_speed提取平均速度
-    print(traces)
+    print(traces[0])
 
 
 if __name__ == '__main__':
