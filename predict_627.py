@@ -20,5 +20,5 @@ y_pre = model.predict(X_test)
 # get result
 num = np.arange(1, 100001)
 result = num[y_pre == 0]
-np.savetxt('BDC0642_20170627s.txt', result, '%d')
+np.savetxt('BDC0642_20170627.txt', result, '%d')
 print(result.shape)
