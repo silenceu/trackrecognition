@@ -5,6 +5,7 @@ import pandas as pd
 import math
 from random import randint
 
+
 def readdata(filepath):
     """
     读取文件,返回轨迹数据,返回类型为pandas的Series,包含3000个numpy类型二维数组,每个为n*3大小:[[x,y,t],[x,y,t],...,[x,y,t]]
@@ -14,6 +15,10 @@ def readdata(filepath):
     traces = df.loc[:, 'trace']
     traces = traces.apply(lambda trace: [point.split(',') for point in trace.split(';')[:-1]])
     traces = traces.apply(lambda trace: np.array(trace, dtype='int32'))
+    targets = df.loc[:, 'target']
+    # trace_with_target = traces + targets
+    traces = traces + targets
+    # df.insert(4, 'trace_with_target', trace_with_target)
     return traces, np.array(df.loc[:, 'label'], dtype='uint8')
 #################################################################################
 
@@ -297,8 +302,8 @@ def get_feature_list():
 
 def main():
     traces, labels = readdata('data_train.txt')
-    avg_speeds = traces.apply(extract_avg_speed)  # 使用extract_avg_speed提取平均速度
-    print(avg_speeds)
+    # avg_speeds = traces.apply(extract_avg_speed)  # 使用extract_avg_speed提取平均速度
+    print(traces)
 
 
 if __name__ == '__main__':
