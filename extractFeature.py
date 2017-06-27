@@ -305,6 +305,7 @@ def main():
     traces, labels = readdata('data_train.txt')
     # avg_speeds = traces.apply(extract_avg_speed)  # 使用extract_avg_speed提取平均速度
     print(traces[0])
+    print(traces[0].shape)
 
 
 if __name__ == '__main__':
