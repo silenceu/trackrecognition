@@ -25,3 +25,4 @@
 
 -   2017-06-29
     -   增加choose_best.py,在训练集上交叉验证测试所有的特征的组合,算出预测最高的
+    -   增加points_sort.py,按时间点排序采样点,通过from points_sort import get_sorted_trace获取
