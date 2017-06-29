@@ -7,6 +7,12 @@ def trace_sort(trace: np.ndarray):
     return sorted(trace, key=lambda x: x[2])
 
 
+def get_sorted_trace():
+    traces, _ = readdata('data_train.txt')
+    sorted_traces = traces.apply(trace_sort)
+    return sorted_traces
+
+
 def main():
     traces, _ = readdata('data_train.txt')
     sorted_traces = traces.apply(trace_sort)
