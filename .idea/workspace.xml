@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a33d21ad-f35c-4114-bb52-7a17c9411870" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/choose_best.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -736,7 +735,21 @@
       <option name="project" value="LOCAL" />
       <updated>1498745895558</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="update">
+      <created>1498745908293</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1498745908293</updated>
+    </task>
+    <task id="LOCAL-00032" summary="计算所有排列组合的得分,给出最高的特征集合">
+      <created>1498745971076</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1498745971076</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -853,7 +866,8 @@
     <MESSAGE value="27日结果" />
     <MESSAGE value="27日" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="计算所有排列组合的得分,给出最高的特征集合" />
+    <option name="LAST_COMMIT_MESSAGE" value="计算所有排列组合的得分,给出最高的特征集合" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
