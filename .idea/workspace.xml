@@ -749,7 +749,14 @@
       <option name="project" value="LOCAL" />
       <updated>1498745971076</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="update">
+      <created>1498745985276</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1498745985276</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -865,9 +872,9 @@
     <MESSAGE value="27日提交" />
     <MESSAGE value="27日结果" />
     <MESSAGE value="27日" />
-    <MESSAGE value="update" />
     <MESSAGE value="计算所有排列组合的得分,给出最高的特征集合" />
-    <option name="LAST_COMMIT_MESSAGE" value="计算所有排列组合的得分,给出最高的特征集合" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
