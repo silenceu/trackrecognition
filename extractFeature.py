@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 import math
 from random import randint
-
+from generate_train_data import apply_all
 
 def readdata(filepath):
     """
@@ -31,9 +31,12 @@ def readtestdata(filepath):
     column_name = ['id', 'trace', 'target']
     df = pd.read_csv(filepath, sep=' ', header=None, names=column_name)
     traces = df.loc[:, 'trace']
+    targets = df.loc[:, 'target']
+    targets += ',0;'
+    traces = traces + targets
     traces = traces.apply(lambda trace: [point.split(',') for point in trace.split(';')[:-1]])
     # print(traces)
-    traces = traces.apply(lambda trace: np.array(trace, dtype='int32'))
+    traces = traces.apply(lambda trace: np.array(trace, dtype='float'))
     # print(traces)
     return traces
 #################################################################################
@@ -41,9 +44,12 @@ def readtestdata(filepath):
 
 # 提取平均速度
 def extract_avg_speed(trace: np.ndarray):
+
+
     """
     提取平均速度,参数为一个numpy二维数组,大小是n*3:[[x,y,t],[x,y,t],...,[x,y,t]]
     """
+    trace=trace[:-1]
     path_length = 0
     tx = trace[0][0]
     ty = trace[0][1]
@@ -58,6 +64,8 @@ def extract_avg_speed(trace: np.ndarray):
 
 # 提取速度变化程度
 def extract_speed_change_rate(trace: np.ndarray):
+    trace=trace[:-1]
+
     trace = sorted(trace, key=lambda point: point[2])
 
     tx = trace[0][0]
@@ -83,6 +91,8 @@ def extract_speed_change_rate(trace: np.ndarray):
 
 # 提取最大速度
 def extract_max_speed(trace: np.ndarray):
+    trace=trace[:-1]
+
     trace = sorted(trace, key=lambda point: point[2])
     tx = trace[0][0]
     ty = trace[0][1]
@@ -106,6 +116,7 @@ def extract_max_speed(trace: np.ndarray):
 
 # 提取最小速度
 def extract_min_speed(trace: np.ndarray):
+    trace=trace[:-1]
     trace = sorted(trace, key=lambda point: point[2])
     tx = trace[0][0]
     ty = trace[0][1]
@@ -173,54 +184,79 @@ def extract_min_speed(trace: np.ndarray):
 #         tt = t
 #     return min_speed
 
-
+#注意，本函数不用于训练，用于分类
 def extract_if_traceback(trace: np.ndarray):
     """
     判断是否会重复轨迹，以此区分部分机器，参数为一个numpy二维数组,大小是n*3:[[x,y,t],[x,y,t],...,[x,y,t]]
+    注意：机器在x轴上必定为递增的，不会递减
     若有返回 则判断为人  返回1
     否则需要继续判断人或机器，返回0
     """
+    trace=trace[:-1]
+
     trace = trace.T
-    judge = int(0)
-    if len(trace[0]) > 2:
-        for i in range(0, len(trace[0])-2):
-            if judge == 0:
-                if trace[0][i] >= trace[0][i+1]:
-                    judge = -1
-                else:
-                    judge = 1
-            else:
-                if trace[0][i] >= trace[0][i+1] and judge == 1:
-                    return 1
-                elif trace[0][i] < trace[0][i+1] and judge == -1:
-                    return 1
-    return 0
+    cnt=0
+    if len(trace[0]) >= 2:
+        for i in range(0, len(trace[0])-1):
+            if trace[0][i] > trace[0][i + 1]:
+                return 1
+
+    else:
+        return 1
+    return cnt
+
+
+#注意，本函数不用于训练，用于分类
+def extract_trace_count(trace: np.ndarray):
+    """
+    判断是否会重复轨迹，以此区分部分机器，参数为一个numpy二维数组,大小是n*3:[[x,y,t],[x,y,t],...,[x,y,t]]
+    注意：机器在x轴上必定为递增的，不会递减
+    若有返回 则判断为人  返回1
+    否则需要继续判断人或机器，返回0
+    """
+    trace=trace[:-1]
+
+    trace = trace.T
+    cnt=0
+    tmp=0
+    if len(trace[0]) >= 2:
+        for i in range(0, len(trace[0])-1):
+            if trace[0][i] > trace[0][i + 1]:
+                 tmp=tmp+1
+            elif tmp!=0:
+                cnt+=1
+                tmp=0
+    else:
+        return 1/len(trace)
+    if tmp!=0:cnt+=1
+    return cnt/len(trace)
 #################################################################################
 
 
 def extract_area(trace: np.ndarray):
     """
     求时间分割的面积，参数为一个numpy二维数组,大小是n*3:[[x,y,t],[x,y,t],...,[x,y,t]]
-    若上大于下，代表可能为人的可能性高，返回1
-    否则下大于等于上，代表凸型图，机器的可能性高，返回0
+    更改返回为float型，为0~1的百分比值，代表右下方面积比总面积
+    若小于0.5，代表可能为人的可能性高
+    否则大于0.5，代表凸型图，机器的可能性高
+    但并不是明显特征，只是部分机器的比率更高
     """
+
+    trace=trace[:-1]
     if trace.size < 3:
         return 1
     trace = trace.T
     p = Point(0, 0)
-    points = [p, ]
-    if len(trace[0]) - 1 > 0:
-        for i in range(1, len(trace[0]) - 1):
-            p = Point(i, trace[2][i-1])
+    points = [p]
+    if len(trace[0]) > 0:
+        for i in range(0, len(trace[0])):
+            p = Point(i+1, trace[2][i])
             points.append(p)
-        p = Point(len(trace[2]) - 1, 0)
+        p = Point(len(trace[2]), 0)
         points.append(p)
         area = GetAreaOfPolyGon(points)
-        all_area = trace[2][len(trace[2]) - 2]*(len(trace[2]) - 1)
-        if all_area - area > area:
-            return 1
-        else:
-            return 0
+        all_area = trace[2][len(trace[2]) - 1]*(len(trace[2]))
+        return round(float(area/all_area), 4)
 
 
 class Point:
@@ -236,8 +272,8 @@ def GetAreaOfPolyGon(points):
 
     p1 = points[0]
     for i in range(1, len(points) - 1):
-        p2 = points[1]
-        p3 = points[2]
+        p2 = points[i]
+        p3 = points[i+1]
 
         # 计算向量
         vecp1p2 = Point(p2.x - p1.x, p2.y - p1.y)
@@ -253,7 +289,7 @@ def GetAreaOfPolyGon(points):
 
         triArea = GetAreaOfTriangle(p1, p2, p3) * sign
         area += triArea
-    return abs(area)
+    return round(abs(area), 5)
 
 
 def GetAreaOfTriangle(p1, p2, p3):
@@ -265,7 +301,8 @@ def GetAreaOfTriangle(p1, p2, p3):
     p3p1 = GetLineLength(p3, p1)
     s = (p1p2 + p2p3 + p3p1) / 2
     area = s * (s - p1p2) * (s - p2p3) * (s - p3p1)  # 海伦公式
-    area = math.sqrt(area)
+    if int(area) != 0:
+        area = math.sqrt(area)
     return area
 
 
@@ -294,18 +331,30 @@ def get_feature_list():
     返回特征函数列表,每次有新的特征添加或减少都需要修改本函数的返回
     这样不需要在generate_train_data文件中每次引入
     另外新增加了一个features_[data].py文件，data当天日期，比如：6月23日 --> features_623.py
-    新增加的文件对应的每次新的特征组合，每次有有更高分数出现，默认把低分数的文件移动到history文件夹中
+    新增加的文件对应的每次新的特征组合，现，每次有有更高分数出默认把低分数的文件移动到history文件夹中
     :return:
     """
     return [extract_avg_speed, extract_speed_change_rate, extract_max_speed, extract_min_speed,
             extract_if_traceback, extract_area]
+    # return [extract_if_traceback]
+
 
 
 def main():
-    traces, labels = readdata('data_train.txt')
+    # traces, labels = readdata('data_train.txt')
+    # functions = get_feature_list()
+    # X = apply_all(functions, traces)
+    # X = np.nan_to_num(X)
+    # np.savetxt("train_feature.txt", X, '%f')
+
+    traces = readtestdata('data_test.txt')
+    functions = get_feature_list()
+    X = apply_all(functions, traces)
+    X = np.nan_to_num(X)
+    np.savetxt("test_feature.txt", X, '%f')
+
     # avg_speeds = traces.apply(extract_avg_speed)  # 使用extract_avg_speed提取平均速度
-    print(traces[0])
-    print(traces[0].shape)
+
 
 
 if __name__ == '__main__':
