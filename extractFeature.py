@@ -6,6 +6,7 @@ import math
 from random import randint
 from generate_train_data import apply_all
 
+
 def readdata(filepath):
     """
     读取文件,返回轨迹数据,返回类型为pandas的Series,包含3000个numpy类型二维数组,每个为n*3大小:[[x,y,t],[x,y,t],...,[x,y,t]]
@@ -49,7 +50,7 @@ def extract_avg_speed(trace: np.ndarray):
     """
     提取平均速度,参数为一个numpy二维数组,大小是n*3:[[x,y,t],[x,y,t],...,[x,y,t]]
     """
-    trace=trace[:-1]
+    trace = trace[:-1]
     path_length = 0
     tx = trace[0][0]
     ty = trace[0][1]
@@ -64,10 +65,8 @@ def extract_avg_speed(trace: np.ndarray):
 
 # 提取速度变化程度
 def extract_speed_change_rate(trace: np.ndarray):
-    trace=trace[:-1]
-
+    trace = trace[:-1]
     trace = sorted(trace, key=lambda point: point[2])
-
     tx = trace[0][0]
     ty = trace[0][1]
     tt = trace[0][2]
@@ -91,7 +90,7 @@ def extract_speed_change_rate(trace: np.ndarray):
 
 # 提取最大速度
 def extract_max_speed(trace: np.ndarray):
-    trace=trace[:-1]
+    trace = trace[:-1]
 
     trace = sorted(trace, key=lambda point: point[2])
     tx = trace[0][0]
@@ -116,7 +115,7 @@ def extract_max_speed(trace: np.ndarray):
 
 # 提取最小速度
 def extract_min_speed(trace: np.ndarray):
-    trace=trace[:-1]
+    trace = trace[:-1]
     trace = sorted(trace, key=lambda point: point[2])
     tx = trace[0][0]
     ty = trace[0][1]
@@ -184,7 +183,7 @@ def extract_min_speed(trace: np.ndarray):
 #         tt = t
 #     return min_speed
 
-#注意，本函数不用于训练，用于分类
+# 注意，本函数不用于训练，用于分类
 def extract_if_traceback(trace: np.ndarray):
     """
     判断是否会重复轨迹，以此区分部分机器，参数为一个numpy二维数组,大小是n*3:[[x,y,t],[x,y,t],...,[x,y,t]]
@@ -192,10 +191,10 @@ def extract_if_traceback(trace: np.ndarray):
     若有返回 则判断为人  返回1
     否则需要继续判断人或机器，返回0
     """
-    trace=trace[:-1]
+    trace = trace[:-1]
 
     trace = trace.T
-    cnt=0
+    cnt = 0
     if len(trace[0]) >= 2:
         for i in range(0, len(trace[0])-1):
             if trace[0][i] > trace[0][i + 1]:
@@ -206,7 +205,7 @@ def extract_if_traceback(trace: np.ndarray):
     return cnt
 
 
-#注意，本函数不用于训练，用于分类
+# 注意，本函数不用于训练，用于分类
 def extract_trace_count(trace: np.ndarray):
     """
     判断是否会重复轨迹，以此区分部分机器，参数为一个numpy二维数组,大小是n*3:[[x,y,t],[x,y,t],...,[x,y,t]]
@@ -214,7 +213,7 @@ def extract_trace_count(trace: np.ndarray):
     若有返回 则判断为人  返回1
     否则需要继续判断人或机器，返回0
     """
-    trace=trace[:-1]
+    trace = trace[:-1]
 
     trace = trace.T
     cnt=0
@@ -228,7 +227,8 @@ def extract_trace_count(trace: np.ndarray):
                 tmp=0
     else:
         return 1/len(trace)
-    if tmp!=0:cnt+=1
+    if tmp != 0:
+        cnt += 1
     return cnt/len(trace)
 #################################################################################
 
@@ -242,8 +242,8 @@ def extract_area(trace: np.ndarray):
     但并不是明显特征，只是部分机器的比率更高
     """
 
-    trace=trace[:-1]
-    if trace.size < 3:
+    trace = trace[:-1]
+    if len(trace) < 3:
         return 1
     trace = trace.T
     p = Point(0, 0)
@@ -267,8 +267,6 @@ class Point:
 
 def GetAreaOfPolyGon(points):
     area = 0
-    if len(points) < 3:
-        return randint(1, 100)   # 遇到点小于三个时会出错,为了提取出所有特征暂时随机返回返回一个值，萌姐进一步修改
 
     p1 = points[0]
     for i in range(1, len(points) - 1):
@@ -339,22 +337,21 @@ def get_feature_list():
     # return [extract_if_traceback]
 
 
-
 def main():
-    # traces, labels = readdata('data_train.txt')
-    # functions = get_feature_list()
-    # X = apply_all(functions, traces)
-    # X = np.nan_to_num(X)
-    # np.savetxt("train_feature.txt", X, '%f')
+    tt = int(input('1. train data; 2. test data: '))
 
-    traces = readtestdata('data_test.txt')
-    functions = get_feature_list()
-    X = apply_all(functions, traces)
-    X = np.nan_to_num(X)
-    np.savetxt("test_feature.txt", X, '%f')
-
-    # avg_speeds = traces.apply(extract_avg_speed)  # 使用extract_avg_speed提取平均速度
-
+    if tt == 1:
+        traces, labels = readdata('data_train.txt')
+        functions = get_feature_list()
+        X = apply_all(functions, traces)
+        X = np.nan_to_num(X)
+        np.savetxt("train_feature630.txt", X, '%f')
+    elif tt == 2:
+        traces = readtestdata('data_test.txt')
+        functions = get_feature_list()
+        X = apply_all(functions, traces)
+        X = np.nan_to_num(X)
+        np.savetxt("test_feature630.txt", X, '%f')
 
 
 if __name__ == '__main__':
